@@ -1,0 +1,98 @@
+<nav class="bg-vinyl-dark border-b-4 border-retro-gold shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+        <div class="h-12 w-12 rounded-full border-2 border-retro-gold overflow-hidden bg-black">
+             <img src="assets/Gemini_Generated_Image_yx5x8wyx5x8wyx5x.png" alt="Logo" class="h-full w-full object-cover"> 
+        </div>
+        <span class="font-bold text-2xl text-retro-gold tracking-wider uppercase hidden sm:block">
+          Grill & Groove
+        </span>
+      </div>
+
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="#" class="text-cream-light hover:text-retro-gold font-medium transition duration-300">Home</a>
+        <a href="#" class="text-cream-light hover:text-retro-gold font-medium transition duration-300">About</a>
+        <a href="#" class="text-cream-light hover:text-retro-gold font-medium transition duration-300">Services</a>
+        <a href="#" class="text-cream-light hover:text-retro-gold font-medium transition duration-300">Dashboard</a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-4">
+        
+        <div class="relative group">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400 group-focus-within:text-retro-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <input type="text" 
+                 class="bg-black/30 text-cream-light text-sm rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-retro-gold border border-transparent focus:bg-vinyl-dark transition-all w-32 focus:w-48 placeholder-gray-400" 
+                 placeholder="Search...">
+        </div>
+
+        
+        <button (click)="toggleDarkMode()" class="p-2 rounded-full text-cream-light hover:bg-white/10 transition">
+          <span *ngIf="!isDarkMode">🌙</span>
+          <span *ngIf="isDarkMode">☀️</span>
+        </button>
+
+        <div *ngIf="!isLoggedIn" class="flex gap-2">
+            <button class="text-cream-light hover:text-retro-gold font-medium px-3 py-2">Login</button>
+            <button class="bg-retro-gold text-vinyl-dark hover:bg-retro-red hover:text-white font-bold px-4 py-2 rounded-full transition duration-300">
+                Register
+            </button>
+        </div>
+
+        <div *ngIf="isLoggedIn" class="relative ml-3">
+          <button (click)="toggleProfileDropdown()" class="flex items-center gap-2 focus:outline-none">
+            <div class="h-10 w-10 rounded-full bg-retro-gold text-vinyl-dark flex items-center justify-center font-bold border-2 border-cream-light hover:border-retro-red transition">
+              JS
+            </div>
+          </button>
+
+          <div *ngIf="isProfileDropdownOpen" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 border border-retro-gold z-50 animate-fade-in-down">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-retro-gold hover:text-vinyl-dark">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-retro-gold hover:text-vinyl-dark">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-retro-gold hover:text-vinyl-dark">Sign out</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="-mr-2 flex md:hidden">
+        <button (click)="toggleMobileMenu()" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-retro-gold hover:text-white hover:bg-white/10 focus:outline-none">
+          <svg class="h-8 w-8" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path *ngIf="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path *ngIf="isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="md:hidden bg-vinyl-dark border-t border-white/10" *ngIf="isMobileMenuOpen">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-cream-light hover:bg-retro-gold hover:text-vinyl-dark">Home</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-cream-light hover:bg-retro-gold hover:text-vinyl-dark">About</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-cream-light hover:bg-retro-gold hover:text-vinyl-dark">Services</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-cream-light hover:bg-retro-gold hover:text-vinyl-dark">Dashboard</a>
+    </div>
+    
+    <div class="pt-4 pb-4 border-t border-white/10">
+      <div class="px-4 mb-3">
+          <input type="text" class="w-full bg-black/30 text-cream-light rounded-md px-3 py-2 border border-transparent focus:border-retro-gold focus:outline-none" placeholder="Search...">
+      </div>
+      <div class="flex items-center justify-between px-5">
+         <span class="text-cream-light font-medium">Dark Mode</span>
+         <button (click)="toggleDarkMode()" class="text-2xl">
+             <span *ngIf="!isDarkMode">🌙</span>
+             <span *ngIf="isDarkMode">☀️</span>
+         </button>
+      </div>
+      <div class="mt-3 px-2 space-y-1">
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-cream-light hover:bg-retro-gold hover:text-vinyl-dark">Profile</a>
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-cream-light hover:bg-retro-gold hover:text-vinyl-dark">Sign out</a>
+      </div>
+    </div>
+  </div>
+</nav>
